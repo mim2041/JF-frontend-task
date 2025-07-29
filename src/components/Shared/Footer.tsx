@@ -68,7 +68,7 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="flex flex-col md:flex-row items-center justify-between max-w-[1280px] mx-auto px-6 md:px-0 my-12">
+        <div className="flex flex-col md:flex-row items-center justify-between max-w-[1280px] mx-auto px-6 md:px-0 my-12 md:my-20 md:mb-12">
           <div className="flex items-center justify-center gap-6 md:gap-8 text-[16px] md:text-[20px]">
             <Image
               src={logo}
