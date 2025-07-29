@@ -15,8 +15,8 @@ const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <div className="max-w-[1280px] mx-auto px-6 md:px-0 py-6 font-poppins">
-      <div className="flex items-center justify-between relative">
+    <div className="fixed top-0 left-0 w-full bg-white z-50">
+      <div className="flex items-center justify-between relative max-w-[1280px] mx-auto px-6 md:px-0 md:my-10 py-4 md:py-6 font-poppins">
         <nav className="hidden md:flex flex-1">
           <ul className="flex gap-7 text-[18px] cursor-pointer">
             {["Home", "Shop", "Blog", "Contact"].map((item) => (
