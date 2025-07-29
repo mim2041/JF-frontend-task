@@ -1,65 +1,64 @@
 "use client";
 import React, { useRef } from "react";
-import agri1 from "@/assets/images/agri1.svg";
-import agri2 from "@/assets/images/agri2.svg";
-import agri3 from "@/assets/images/agri3.svg";
-import agri4 from "@/assets/images/agri4.svg";
+import land1 from "@/assets/images/land1.svg";
+import land2 from "@/assets/images/land2.svg";
+import land3 from "@/assets/images/land3.svg";
+import land4 from "@/assets/images/land4.svg";
 import Image from "next/image";
-import { GoArrowLeft, GoArrowRight } from "react-icons/go";
 import leftArrow from "@/assets/icons/leftArrow.svg";
 import rightArrow from "@/assets/icons/rightArrow.svg";
 import CustomSwiper from "@/components/Shared/Swiper";
 import { SwiperSlide } from "swiper/react";
 
-const AgriculturalProducts = () => {
+const LandscapeProducts = () => {
   const products = [
     {
       id: 1,
-      image: agri1,
-      title: "JF Barbed Wire- 270 GSM",
-      price: "₹4,995.00",
+      image: land1,
+      title: "Antiqo Fence",
+      price: "₹10,024.00 – ₹14,984.82",
     },
     {
       id: 2,
-      image: agri2,
-      title: "FGC RustFree Fencing Poles",
-      price: "₹499.00 – ₹1,589.00",
+      image: land2,
+      title: "JF Australian Trellis",
+      price: "₹6,962.00",
     },
     {
       id: 3,
-      image: agri3,
-      title: "GI Poultry Mesh",
-      price: "₹1,260.00 – ₹10,750.00",
+      image: land3,
+      title: "JF Polyhex Mesh",
+      price: "₹4,050.00 – ₹10,770.00",
     },
     {
       id: 4,
-      image: agri4,
-      title: "JF Bluelink Mesh",
-      price: "₹3,067.50 – ₹6,362.50",
+      image: land4,
+      title: "JF Privezy Grass Wall",
+      price: "₹1,646.10 – ₹18,284.10",
     },
     {
       id: 5,
-      image: agri1,
-      title: "JF Barbed Wire- 270 GSM",
-      price: "₹4,995.00",
+      image: land1,
+      title: "Antiqo Fence",
+      price: "₹10,024.00 – ₹14,984.82",
     },
     {
       id: 6,
-      image: agri2,
-      title: "FGC RustFree Fencing Poles",
-      price: "₹499.00 – ₹1,589.00",
+      image: land2,
+      title: "JF Australian Trellis",
+      price: "₹6,962.00",
     },
     {
       id: 7,
-      image: agri3,
-      title: "GI Poultry Mesh",
-      price: "₹1,260.00 – ₹10,750.00",
+      image: land3,
+      title: "JF Polyhex Mesh",
+      price: "₹4,050.00 – ₹10,770.00",
     },
     {
       id: 8,
-      image: agri4,
-      title: "JF Bluelink Mesh",
-      price: "₹3,067.50 – ₹6,362.50",
+      image: land4,
+      title: "JF Privezy Grass Wall",
+      price: "₹1,646.10 – ₹18,284.10",
     },
   ];
   const swiperRef = useRef(null);
@@ -67,7 +66,7 @@ const AgriculturalProducts = () => {
   return (
     <div className="max-w-[1280px] mx-auto px-6 md:px-0 my-20 font-poppins">
       <h2 className="text-[26px] md:text-[42px] font-[500] mb-6">
-        Agricultural Products
+        Landscape Products
       </h2>
       <div className="relative pb-10 md:pb-0">
         <CustomSwiper swiperRef={swiperRef}>
@@ -127,4 +126,4 @@ const AgriculturalProducts = () => {
   );
 };
 
-export default AgriculturalProducts;
+export default LandscapeProducts;
