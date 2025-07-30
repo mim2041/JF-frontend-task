@@ -5,11 +5,13 @@ import { Pagination, A11y, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/a11y";
+import "swiper/css/autoplay";
 
 const CustomSwiper = ({ children, swiperRef }) => {
   return (
     <div>
       <Swiper
+        loop={false}
         modules={[A11y, Autoplay]}
         spaceBetween={20}
         onSwiper={(swiper) => (swiperRef.current = swiper)}

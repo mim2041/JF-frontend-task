@@ -6,6 +6,7 @@ import WhyUs from "./components/WhyUs";
 import ProductBadge from "./components/ProductBadge";
 import ContactSection from "./components/ContactSection";
 import HeroSection from "./components/HeroSection";
+import Feedback from "./components/Feedback";
 
 const Home = () => {
   return (
@@ -16,6 +17,7 @@ const Home = () => {
       <BrandValue />
       <WhyUs />
       <ProductBadge />
+      <Feedback />
       <ContactSection />
     </div>
   );
