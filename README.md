@@ -1,36 +1,77 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🚀 Responsive Landing Page – Frontend Interview Task
 
-## Getting Started
+This project is a pixel-perfect, fully responsive landing page built from a [Figma design](https://pixso.net/app/editor/W9XoCODzsw7XjyEbTSsVfA?icon_type=1&page-id=0%3A1&item-id=243%3A14) as part of a Frontend Developer interview assignment.
 
-First, run the development server:
+Here's a complete **`README.md`** section for the **Tech Stack** in proper markdown format:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+---
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🛠 Tech Stack
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+This project was built using modern, performance-optimized frontend technologies:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### ✅ Framework & Language
 
-## Learn More
+- **[Next.js](https://nextjs.org/)** – Full-stack React framework with built-in routing, SSR, and image optimization.
+- **[TypeScript](https://www.typescriptlang.org/)** – Superset of JavaScript that provides static typing and improved developer experience.
 
-To learn more about Next.js, take a look at the following resources:
+### 🎨 Styling & Layout
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- **[Tailwind CSS](https://tailwindcss.com/)** – Utility-first CSS framework for rapidly building custom designs with responsive breakpoints, dark mode, and more.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### 🎞 Animations
 
-## Deploy on Vercel
+- **[Framer Motion](https://www.framer.com/motion/)** – Powerful animation library for React. Used for scroll effects, element transitions, and micro-interactions.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### ☁️ Deployment
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- **[Vercel](https://vercel.com/)** – Hosting platform by the creators of Next.js. Used for deploying the live version with CI/CD, fast CDN, and automatic HTTPS.
+
+---
+
+### 🧩 Why These Choices?
+
+- **Next.js + TypeScript** for robust app structure, maintainability, and production-readiness.
+- **Tailwind CSS** for its speed, flexibility, and clean utility-based workflow.
+- **Framer Motion** for smooth, declarative animations that enhance user experience.
+- **Vercel** for seamless integration with Next.js and effortless deployment.
+
+---
+
+## 🎯 Project Goals
+
+- ✅ Pixel-perfect conversion from Figma
+- ✅ Fully responsive layout across devices (mobile, tablet, desktop)
+- ✅ Clean, modular and scalable codebase
+- ✅ Reusable React components
+- ✅ Smooth and subtle animations for better UX
+
+---
+
+## Clone and Run
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/mim2041/JF-frontend-task
+   cd JF-frontend-task
+   ```
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+3. Start the development server:
+
+   ```bash
+   npm run dev
+   ```
+
+4. Open your browser and navigate to `http://localhost:3000`
+
+5. To build for production:
+   ```bash
+   npm run build
+   ```
+
+## Live Link
+
+You can view the live version of the landing page [here](https://jf-frontend-task.vercel.app/).
