@@ -1,6 +1,13 @@
 "use client";
 import React, { useState } from "react";
 import { IoLocation, IoCall, IoMail } from "react-icons/io5";
+import br1 from "@/assets/icons/br1.svg";
+import br2 from "@/assets/icons/br2.svg";
+import br3 from "@/assets/icons/br3.svg";
+import br4 from "@/assets/icons/br4.svg";
+import br5 from "@/assets/icons/br5.svg";
+import br6 from "@/assets/icons/br6.svg";
+import Image from "next/image";
 
 const ContactSection = () => {
   const [selectedBranch, setSelectedBranch] = useState("MUMBAI");
@@ -12,12 +19,12 @@ const ContactSection = () => {
   });
 
   const branches = [
-    { name: "COIMBATORE", icon: "🏛️", active: false },
-    { name: "CHENNAI", icon: "🕍", active: false },
-    { name: "HYDERABAD", icon: "🏛️", active: false },
-    { name: "GOA", icon: "🗼", active: false },
-    { name: "KOCHI", icon: "🚢", active: false },
-    { name: "MUMBAI", icon: "🏢", active: true },
+    { name: "COIMBATORE", icon: br1, active: false },
+    { name: "CHENNAI", icon: br2, active: false },
+    { name: "HYDERABAD", icon: br3, active: false },
+    { name: "GOA", icon: br4, active: false },
+    { name: "KOCHI", icon: br5, active: false },
+    { name: "MUMBAI", icon: br6, active: true },
   ];
 
   const handleInputChange = (
@@ -37,35 +44,37 @@ const ContactSection = () => {
   };
 
   return (
-    <div className="w-full bg-gray-50 py-16">
-      <div className="max-w-[1280px] mx-auto px-4">
+    <div className="w-full py-16">
+      <div className="max-w-[1280px] mx-auto px-4 relative border border-gray-300 p-2 rounded-3xl">
         {/* OUR BRANCHES Section */}
         <div className="mb-12">
           {/* Title Banner */}
-          <div className="bg-green-500 text-white text-center py-4 px-8 rounded-lg mb-8">
-            <h2 className="text-2xl font-bold uppercase">OUR BRANCHES</h2>
+          <div className="absolute -top-6 left-1/2 transform -translate-x-1/2 ">
+            <button className="bg-[#B0DD1D] text-black w-[120px] md:w-[143px] h-[30px] md:h-[36px] rounded-full uppercase font-[500]">
+              Our Branches
+            </button>
           </div>
 
           {/* Branch Navigation */}
-          <div className="flex flex-wrap justify-center gap-4 md:gap-6">
+          <div className="flex flex-wrap justify-center gap-4 md:gap-6 mt-10">
             {branches.map((branch) => (
               <button
                 key={branch.name}
                 onClick={() => setSelectedBranch(branch.name)}
-                className={`flex flex-col items-center gap-2 p-4 rounded-lg transition-all duration-300 ${
+                className={`flex flex-col items-center gap-2 p-4 rounded-lg transition-all duration-300 md:w-[116px] md:h-[104px] ${
                   selectedBranch === branch.name
-                    ? "bg-green-500 text-white border-2 border-green-500"
-                    : "bg-white text-gray-700 border-2 border-gray-200 hover:border-green-300"
+                    ? "bg-[#B0DD1D1A] border-2 border-[#B0DD1D3A]"
+                    : "bg-white"
                 }`}
               >
-                <span className="text-2xl">{branch.icon}</span>
+                <Image src={branch.icon} alt={branch.name} />
                 <span className="text-sm font-medium">{branch.name}</span>
-                {branch.name === "MUMBAI" && (
+                {/* {branch.name === "MUMBAI" && (
                   <div className="flex items-center gap-2 text-xs">
                     <span className="text-blue-400">→</span>
                     <span>Md Mahafuj Hossain</span>
                   </div>
-                )}
+                )} */}
               </button>
             ))}
           </div>
@@ -74,7 +83,7 @@ const ContactSection = () => {
         {/* Contact Form and Map Section */}
         <div className="grid lg:grid-cols-2 gap-8">
           {/* Contact Form - Left Panel */}
-          <div className="bg-blue-900 rounded-lg p-8 text-white">
+          <div className="bg-[#002B55] rounded-lg p-8 text-white">
             <h3 className="text-3xl font-bold mb-8">Contact Us</h3>
 
             <form onSubmit={handleSubmit} className="space-y-6">
@@ -85,7 +94,7 @@ const ContactSection = () => {
                   placeholder="Your Name"
                   value={formData.name}
                   onChange={handleInputChange}
-                  className="w-full px-4 py-3 bg-gray-800 text-white placeholder-gray-400 rounded-lg border border-gray-700 focus:border-green-500 focus:outline-none transition-colors"
+                  className="w-full px-4 py-3 placeholder:text-white bg-[#FFFFFF1A] transparent rounded-2xl border border-[#002B55] focus:border-green-500 focus:outline-none"
                   required
                 />
               </div>
@@ -97,7 +106,7 @@ const ContactSection = () => {
                   placeholder="Email"
                   value={formData.email}
                   onChange={handleInputChange}
-                  className="w-full px-4 py-3 bg-gray-800 text-white placeholder-gray-400 rounded-lg border border-gray-700 focus:border-green-500 focus:outline-none transition-colors"
+                  className="w-full px-4 py-3 placeholder:text-white bg-[#FFFFFF1A] transparent rounded-2xl border border-[#002B55] focus:border-green-500 focus:outline-none"
                   required
                 />
               </div>
@@ -109,7 +118,7 @@ const ContactSection = () => {
                   placeholder="Phone *"
                   value={formData.phone}
                   onChange={handleInputChange}
-                  className="w-full px-4 py-3 bg-gray-800 text-white placeholder-gray-400 rounded-lg border border-gray-700 focus:border-green-500 focus:outline-none transition-colors"
+                  className="w-full px-4 py-3 placeholder:text-white bg-[#FFFFFF1A] transparent rounded-2xl border border-[#002B55] focus:border-green-500 focus:outline-none"
                   required
                 />
               </div>
@@ -121,15 +130,12 @@ const ContactSection = () => {
                   value={formData.message}
                   onChange={handleInputChange}
                   rows={4}
-                  className="w-full px-4 py-3 bg-gray-800 text-white placeholder-gray-400 rounded-lg border border-gray-700 focus:border-green-500 focus:outline-none transition-colors resize-none"
+                  className="w-full px-4 py-3 placeholder:text-white bg-[#FFFFFF1A] transparent rounded-2xl border border-[#002B55] focus:border-green-500 focus:outline-none resize-none"
                   required
                 />
               </div>
 
-              <button
-                type="submit"
-                className="w-full bg-green-500 text-white py-3 px-6 rounded-lg font-semibold hover:bg-green-600 transition-colors duration-300"
-              >
+              <button className="bg-[#B0DD1D] text-black w-[130px] md:w-[160px] h-[40px] md:h-[50px] rounded-full ">
                 Submit
               </button>
             </form>
