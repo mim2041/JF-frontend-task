@@ -5,63 +5,28 @@ import { Navigation, Pagination, Autoplay } from "swiper/modules";
 import leftArrow from "@/assets/icons/left.svg";
 import rightArrow from "@/assets/icons/right.svg";
 import heroBg from "@/assets/images/heroBg.svg";
-import image1 from "@/assets/images/image1.jpeg";
-import image2 from "@/assets/images/image2.jpeg";
+import { motion } from "framer-motion";
 
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import Image from "next/image";
+import slidesData from "@/data/HeroData";
 
 const HeroSection = () => {
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
   const swiperRef = useRef(null);
 
-  const slides = [
-    {
-      id: 1,
-      title: "JF Privezy Grass Wall",
-      description: "The Perfect Blend Of Greenery",
-      image: image1,
-      buttonText: "Shop Now",
-    },
-    {
-      id: 2,
-      title: "Australian Durability",
-      description: "Premium Quality Materials",
-      image: image2,
-      buttonText: "Nahean Tarik",
-    },
-    {
-      id: 3,
-      title: "Chain Link Solutions",
-      description: "Secure & Reliable Fencing",
-      image: image1,
-      buttonText: "Learn More",
-    },
-    {
-      id: 6,
-      title: "Chain Link Solutions",
-      description: "Secure & Reliable Fencing",
-      image: image2,
-      buttonText: "Learn More",
-    },
-    {
-      id: 4,
-      title: "Chain Link Solutions",
-      description: "Secure & Reliable Fencing",
-      image: image1,
-      buttonText: "Learn More",
-    },
-    {
-      id: 5,
-      title: "Chain Link Solutions",
-      description: "Secure & Reliable Fencing",
-      image: image2,
-      buttonText: "Learn More",
-    },
-  ];
+  const heroVariants = {
+    hidden: { opacity: 0, y: 100 },
+    visible: { opacity: 1, y: 0 },
+  };
+
+  const heroTransition = {
+    duration: 0.8,
+    ease: "easeOut",
+  };
 
   return (
     <div className="relative w-full overflow-hidden">
@@ -77,8 +42,14 @@ const HeroSection = () => {
       </div>
 
       {/* Main Hero Section */}
-      <div className="relative flex items-center justify-center w-full mt-">
-        <div className="w-full  mx-auto px-4 relative pb-20 md:pb-0">
+      <motion.div
+        className="relative flex items-center justify-center w-full lg:h-[678px]"
+        variants={heroVariants}
+        initial="hidden"
+        animate="visible"
+        transition={heroTransition}
+      >
+        <div className="w-full h-full mx-auto px-4 relative pb-20 md:pb-0">
           <Swiper
             modules={[Navigation, Pagination, Autoplay]}
             spaceBetween={15}
@@ -93,29 +64,25 @@ const HeroSection = () => {
             breakpoints={{
               320: {
                 slidesPerView: 1.1,
-                spaceBetween: 15,
               },
               768: {
                 slidesPerView: 1.3,
-                spaceBetween: 15,
               },
               1024: {
                 slidesPerView: 1.5,
-                spaceBetween: 15,
               },
               1280: {
                 slidesPerView: 1.8,
-                spaceBetween: 15,
               },
             }}
           >
-            {slides.map((slide) => (
+            {slidesData.map((slide) => (
               <SwiperSlide key={slide.id}>
-                <div className="w-full h-[500px] bg-[#F2F4F6] rounded-3xl overflow-hidden shadow p-4">
+                <div className="w-full md:h-[678px] bg-[#F2F4F6] rounded-3xl overflow-hidden shadow p-4">
                   <div className="flex flex-col md:flex-row h-full w-full ">
                     {/* Left - Image */}
                     <div
-                      className="w-full md:w-1/2 h-[250px] md:h-full relative p-6"
+                      className="w-full md:w-1/2 h-[250px] md:h-full relative p-4 md:p-10"
                       style={{
                         backgroundImage: `url(${heroBg.src})`,
                         borderRadius: "20px",
@@ -152,12 +119,20 @@ const HeroSection = () => {
           <div className="hidden md:block">
             <div className="absolute top-1/2 left-[20%] transform -translate-y-1/2 z-10  ">
               <button onClick={() => swiperRef.current?.slidePrev()}>
-                <Image src={leftArrow} alt="Left Arrow" />
+                <Image
+                  src={leftArrow}
+                  alt="Left Arrow"
+                  className="w-[30px] md:w-[51px]"
+                />
               </button>
             </div>
             <div className="absolute top-1/2 right-[20%] transform -translate-y-1/2 z-10">
               <button onClick={() => swiperRef.current?.slideNext()}>
-                <Image src={rightArrow} alt="Right Arrow" />
+                <Image
+                  src={rightArrow}
+                  alt="Right Arrow"
+                  className="w-[30px] md:w-[51px]"
+                />
               </button>
             </div>
           </div>
@@ -176,7 +151,7 @@ const HeroSection = () => {
             </div>
           </div>
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 };

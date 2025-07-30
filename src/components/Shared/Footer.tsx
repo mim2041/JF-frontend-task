@@ -1,11 +1,25 @@
+"use client";
 import React from "react";
 import logo from "@/assets/logos/logo1.svg";
 import fb from "@/assets/icons/fb.svg";
 import insta from "@/assets/icons/instagram.svg";
 import youtube from "@/assets/icons/youtube.svg";
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 const Footer = () => {
+  const btnVariants = {
+    initial: { scale: 0.9 },
+    animate: {
+      scale: 1,
+      transition: {
+        repeat: Infinity,
+        duration: 2,
+        repeatType: "reverse",
+        ease: "easeInOut",
+      },
+    },
+  };
   return (
     <div className="mt-16 font-poppins">
       <div className="bg-[#002B55] py-8 md:py-16 text-white ">
@@ -70,21 +84,31 @@ const Footer = () => {
 
         <div className="flex flex-col md:flex-row items-center justify-between max-w-[1280px] mx-auto px-6 md:px-0 my-12 md:my-20 md:mb-12">
           <div className="flex items-center justify-center gap-6 md:gap-8 text-[16px] md:text-[20px]">
-            <Image
-              src={logo}
-              alt="Logo"
-              className="mx-auto w-[100px] md:w-[132px]"
-            />
+            <motion.div
+              variants={btnVariants}
+              initial="initial"
+              animate="animate"
+            >
+              <Image
+                src={logo}
+                alt="Logo"
+                className="mx-auto w-[100px] md:w-[132px]"
+              />
+            </motion.div>
             <div>
               <p className="font-[600] mb-1">Our Branches</p>
               <p>Coimbatore, Chennai, Hyderabad, Goa, Korchi</p>
             </div>
           </div>
-          <div>
+          <motion.div
+            variants={btnVariants}
+            initial="initial"
+            animate="animate"
+          >
             <button className="bg-[#B0DD1D] text-black w-[130px] md:w-[160px] h-[40px] md:h-[50px] rounded-full ">
               Contact Us
             </button>
-          </div>
+          </motion.div>
         </div>
       </div>
 

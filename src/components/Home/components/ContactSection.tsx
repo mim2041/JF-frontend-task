@@ -8,9 +8,22 @@ import br4 from "@/assets/icons/br4.svg";
 import br5 from "@/assets/icons/br5.svg";
 import br6 from "@/assets/icons/br6.svg";
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 const ContactSection = () => {
   const [selectedBranch, setSelectedBranch] = useState("MUMBAI");
+  const imageDiv = {
+    initial: { scale: 0.9 },
+    animate: {
+      scale: 1,
+      transition: {
+        repeat: Infinity,
+        duration: 2,
+        repeatType: "reverse",
+        ease: "easeInOut",
+      },
+    },
+  };
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -135,9 +148,14 @@ const ContactSection = () => {
                 />
               </div>
 
-              <button className="bg-[#B0DD1D] text-black w-[130px] md:w-[160px] h-[40px] md:h-[50px] rounded-full ">
-                Submit
-              </button>
+              <motion.input
+                variants={imageDiv}
+                initial="initial"
+                animate="animate"
+                className="bg-[#B0DD1D] text-black w-[130px] md:w-[160px] h-[40px] md:h-[50px] rounded-full "
+                type="submit"
+                value="Submit"
+              />
             </form>
           </div>
 

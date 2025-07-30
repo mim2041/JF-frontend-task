@@ -1,76 +1,40 @@
 "use client";
 import React, { useRef } from "react";
-import land1 from "@/assets/images/land1.svg";
-import land2 from "@/assets/images/land2.svg";
-import land3 from "@/assets/images/land3.svg";
-import land4 from "@/assets/images/land4.svg";
 import Image from "next/image";
 import leftArrow from "@/assets/icons/leftArrow.svg";
 import rightArrow from "@/assets/icons/rightArrow.svg";
 import CustomSwiper from "@/components/Shared/Swiper";
 import { SwiperSlide } from "swiper/react";
+import { motion } from "framer-motion";
+import landProducts from "@/data/LandscapeProductsData";
+import { useScroll, useTransform } from "motion/react";
 
 const LandscapeProducts = () => {
-  const products = [
-    {
-      id: 1,
-      image: land1,
-      title: "Antiqo Fence",
-      price: "₹10,024.00 – ₹14,984.82",
-    },
-    {
-      id: 2,
-      image: land2,
-      title: "JF Australian Trellis",
-      price: "₹6,962.00",
-    },
-    {
-      id: 3,
-      image: land3,
-      title: "JF Polyhex Mesh",
-      price: "₹4,050.00 – ₹10,770.00",
-    },
-    {
-      id: 4,
-      image: land4,
-      title: "JF Privezy Grass Wall",
-      price: "₹1,646.10 – ₹18,284.10",
-    },
-    {
-      id: 5,
-      image: land1,
-      title: "Antiqo Fence",
-      price: "₹10,024.00 – ₹14,984.82",
-    },
-    {
-      id: 6,
-      image: land2,
-      title: "JF Australian Trellis",
-      price: "₹6,962.00",
-    },
-    {
-      id: 7,
-      image: land3,
-      title: "JF Polyhex Mesh",
-      price: "₹4,050.00 – ₹10,770.00",
-    },
-    {
-      id: 8,
-      image: land4,
-      title: "JF Privezy Grass Wall",
-      price: "₹1,646.10 – ₹18,284.10",
-    },
-  ];
   const swiperRef = useRef(null);
+  const componentRef = useRef(null);
+
+  // Track scroll progress
+  const { scrollYProgress } = useScroll({
+    target: componentRef,
+    offset: ["0 1", "0.5 1"],
+  });
+  // Scroll effects for the entire swiper container
+  const scale = useTransform(scrollYProgress, [0, 1], [0.8, 1]);
+  const opacity = useTransform(scrollYProgress, [0, 1], [0, 1]);
+  const translateY = useTransform(scrollYProgress, [0, 1], [100, 0]);
 
   return (
-    <div className="max-w-[1280px] mx-auto px-6 md:px-0 my-20 font-poppins">
+    <motion.div
+      ref={componentRef}
+      style={{ scale, opacity, y: translateY }}
+      className="max-w-[1280px] mx-auto px-6 md:px-0 my-20 font-poppins"
+    >
       <h2 className="text-[26px] md:text-[42px] font-[500] mb-6">
         Landscape Products
       </h2>
       <div className="relative pb-10 md:pb-0">
         <CustomSwiper swiperRef={swiperRef}>
-          {products.map((product) => (
+          {landProducts.map((product) => (
             <SwiperSlide key={product.id}>
               <div className="bg-[#F2F4F6] p-2 rounded-2xl ">
                 <div className="flex items-center justify-center">
@@ -122,7 +86,7 @@ const LandscapeProducts = () => {
           </div>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

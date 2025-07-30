@@ -1,3 +1,4 @@
+"use client";
 import Image from "next/image";
 import React from "react";
 import badge from "@/assets/icons/badge.svg";
@@ -6,6 +7,13 @@ import innovative from "@/assets/icons/innovative.svg";
 import card1bg from "@/assets/images/card1bg.svg";
 import card2bg from "@/assets/images/card2bg.svg";
 import card3bg from "@/assets/images/card3bg.svg";
+import { motion } from "framer-motion";
+
+const cardVariants = {
+  float: {
+    y: [0, -20, 0],
+  },
+};
 
 const WhyUs = () => {
   return (
@@ -24,8 +32,17 @@ const WhyUs = () => {
         across industries and communities.
       </p>
 
-      <div className="flex flex-row gap-6 md:gap-12 justify-start items-stretch overflow-x-auto no-scrollbar px-4 mt-10 text-left">
-        <div
+      <div className="flex flex-row gap-6 md:gap-12 justify-start items-stretch overflow-x-auto no-scrollbar px-4 pt-10 text-left">
+        <motion.div
+          variants={cardVariants}
+          animate="float"
+          transition={{
+            delay: 0, // stagger delay
+            duration: 3,
+            repeat: Infinity,
+            repeatType: "loop",
+            ease: "easeInOut",
+          }}
           className="rounded-lg p-6 md:p-10 flex flex-col items-left justify-between gap-6  bg-no-repeat bg-cover bg-center min-w-[300px] md:w-[400px] h-[400px] md:h-[500px] mt-12 md:mt-16"
           style={{
             backgroundImage: `url(${card1bg.src})`,
@@ -47,8 +64,17 @@ const WhyUs = () => {
             withstand harsh environmental conditions, offering longevity and
             reliability.
           </p>
-        </div>
-        <div
+        </motion.div>
+        <motion.div
+          variants={cardVariants}
+          animate="float"
+          transition={{
+            delay: 1, // stagger delay
+            duration: 3,
+            repeat: Infinity,
+            repeatType: "loop",
+            ease: "easeInOut",
+          }}
           className="rounded-lg p-6 md:p-10 flex flex-col items-left justify-between gap-6  bg-no-repeat bg-cover bg-center min-w-[300px] md:w-[400px] h-[400px] md:h-[500px] text-white rounded-2xl"
           style={{
             backgroundImage: `url(${card2bg.src})`,
@@ -71,11 +97,20 @@ const WhyUs = () => {
             commitment to excellence is reflected in the positive feedback from
             our valued clients.
           </p>
-        </div>
-        <div
+        </motion.div>
+        <motion.div
+          variants={cardVariants}
+          animate="float"
+          transition={{
+            delay: 2, // stagger delay
+            duration: 3,
+            repeat: Infinity,
+            repeatType: "loop",
+            ease: "easeInOut",
+          }}
           className="rounded-lg p-6 md:p-10 flex flex-col items-left justify-between gap-6 bg-no-repeat bg-cover bg-center min-w-[300px] md:w-[400px] h-[400px] md:h-[500px] mt-12 md:mt-16"
           style={{
-            backgroundImage: `url(${card1bg.src})`,
+            backgroundImage: `url(${card3bg.src})`,
             borderRadius: "20px",
           }}
         >
@@ -95,7 +130,7 @@ const WhyUs = () => {
             functionality with aesthetic appeal, ensuring both security and
             style.
           </p>
-        </div>
+        </motion.div>
       </div>
       <div>
         <button className="bg-[#B0DD1D] text-black w-[130px] md:w-[160px] h-[40px] md:h-[50px] rounded-full ">

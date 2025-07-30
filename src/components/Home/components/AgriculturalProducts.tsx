@@ -1,77 +1,40 @@
 "use client";
 import React, { useRef } from "react";
-import agri1 from "@/assets/images/agri1.svg";
-import agri2 from "@/assets/images/agri2.svg";
-import agri3 from "@/assets/images/agri3.svg";
-import agri4 from "@/assets/images/agri4.svg";
 import Image from "next/image";
-import { GoArrowLeft, GoArrowRight } from "react-icons/go";
+import { useInView, useScroll, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 import leftArrow from "@/assets/icons/leftArrow.svg";
 import rightArrow from "@/assets/icons/rightArrow.svg";
 import CustomSwiper from "@/components/Shared/Swiper";
 import { SwiperSlide } from "swiper/react";
+import agriProducts from "@/data/AgriculturalProductsData";
 
 const AgriculturalProducts = () => {
-  const products = [
-    {
-      id: 1,
-      image: agri1,
-      title: "JF Barbed Wire- 270 GSM",
-      price: "₹4,995.00",
-    },
-    {
-      id: 2,
-      image: agri2,
-      title: "FGC RustFree Fencing Poles",
-      price: "₹499.00 – ₹1,589.00",
-    },
-    {
-      id: 3,
-      image: agri3,
-      title: "GI Poultry Mesh",
-      price: "₹1,260.00 – ₹10,750.00",
-    },
-    {
-      id: 4,
-      image: agri4,
-      title: "JF Bluelink Mesh",
-      price: "₹3,067.50 – ₹6,362.50",
-    },
-    {
-      id: 5,
-      image: agri1,
-      title: "JF Barbed Wire- 270 GSM",
-      price: "₹4,995.00",
-    },
-    {
-      id: 6,
-      image: agri2,
-      title: "FGC RustFree Fencing Poles",
-      price: "₹499.00 – ₹1,589.00",
-    },
-    {
-      id: 7,
-      image: agri3,
-      title: "GI Poultry Mesh",
-      price: "₹1,260.00 – ₹10,750.00",
-    },
-    {
-      id: 8,
-      image: agri4,
-      title: "JF Bluelink Mesh",
-      price: "₹3,067.50 – ₹6,362.50",
-    },
-  ];
   const swiperRef = useRef(null);
+  const componentRef = useRef(null);
+
+  // Track scroll progress
+  const { scrollYProgress } = useScroll({
+    target: componentRef,
+    offset: ["0 1", "0.5 1"],
+  });
+  // Scroll effects for the entire swiper container
+  const scale = useTransform(scrollYProgress, [0, 1], [0.8, 1]);
+  const opacity = useTransform(scrollYProgress, [0, 1], [0, 1]);
+  const translateY = useTransform(scrollYProgress, [0, 1], [100, 0]);
 
   return (
-    <div className="max-w-[1280px] mx-auto px-6 md:px-0 my-20 font-poppins">
+    <motion.div
+      ref={componentRef}
+      style={{ scale, opacity, y: translateY }}
+      className="max-w-[1280px] mx-auto px-6 md:px-0 my-20 font-poppins"
+    >
       <h2 className="text-[26px] md:text-[42px] font-[500] mb-6">
         Agricultural Products
       </h2>
       <div className="relative pb-10 md:pb-0">
         <CustomSwiper swiperRef={swiperRef}>
-          {products.map((product) => (
+          {agriProducts.map((product) => (
             <SwiperSlide key={product.id}>
               <div className="bg-[#F2F4F6] p-2 rounded-2xl ">
                 <div className="flex items-center justify-center">
@@ -123,7 +86,7 @@ const AgriculturalProducts = () => {
           </div>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

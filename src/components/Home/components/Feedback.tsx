@@ -66,7 +66,7 @@ const Feedback = () => {
           onSwiper={(swiper) => (swiperRef.current = swiper)}
           a11y={{ enabled: true }}
           autoplay={{
-            delay: 9000,
+            delay: 4000,
             disableOnInteraction: false,
           }}
           slidesPerView={1}
