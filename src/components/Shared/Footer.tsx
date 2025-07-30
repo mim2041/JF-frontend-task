@@ -30,7 +30,7 @@ const Footer = () => {
               Join Our JF Products
             </h2>
             <p className="text-[16px] md:text-[20px]">
-              We&apos;ll share you about store updates and discounts
+              We will share you about store updates and discounts
             </p>
             <div className="mt-5 mb-4 w-full md:w-[500px]">
               <input
