@@ -97,6 +97,11 @@ const WhyUs = () => {
           </p>
         </div>
       </div>
+      <div>
+        <button className="bg-[#B0DD1D] text-black w-[130px] md:w-[160px] h-[40px] md:h-[50px] rounded-full ">
+          Contact Us
+        </button>
+      </div>
     </div>
   );
 };

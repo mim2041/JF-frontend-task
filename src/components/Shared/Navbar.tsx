@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import React, { useState } from "react";
-import logo from "@/assets/logos/logo.svg";
+import logo from "@/assets/logos/logo1.svg";
 import loginIcon from "@/assets/icons/login.svg";
 import search from "@/assets/icons/search.svg";
 import cart from "@/assets/icons/cart.svg";
@@ -16,7 +16,7 @@ const Navbar = () => {
 
   return (
     <div className="fixed top-0 left-0 w-full bg-white z-50">
-      <div className="flex items-center justify-between relative max-w-[1280px] mx-auto px-6 md:px-0 md:my-10 py-4 md:py-6 font-poppins">
+      <div className="flex items-center justify-between relative max-w-[1280px] mx-auto px-6 md:px-0  py-4 md:py-8 font-poppins relative">
         <nav className="hidden md:flex flex-1">
           <ul className="flex gap-7 text-[18px] cursor-pointer">
             {["Home", "Shop", "Blog", "Contact"].map((item) => (
@@ -30,7 +30,7 @@ const Navbar = () => {
           </ul>
         </nav>
 
-        <div className="flex-1 flex md:justify-center md:absolute md:left-1/2 md:transform md:-translate-x-1/2">
+        <div className="flex-1 flex md:justify-center md:absolute md:left-1/2 md:transform md:-translate-x-1/2 -bottom-10">
           <Image
             src={logo}
             alt="Logo"
