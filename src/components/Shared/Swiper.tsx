@@ -1,8 +1,8 @@
 "use client";
 
 import React, { MutableRefObject, ReactNode } from "react";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination, A11y, Autoplay } from "swiper/modules";
+import { Swiper } from "swiper/react";
+import { A11y, Autoplay } from "swiper/modules";
 import { Swiper as SwiperType } from "swiper/types";
 import "swiper/css";
 import "swiper/css/pagination";

@@ -1,7 +1,7 @@
 "use client";
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useRef } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination, Autoplay } from "swiper/modules";
+import { Navigation, Autoplay } from "swiper/modules";
 import leftArrow from "@/assets/icons/left.svg";
 import rightArrow from "@/assets/icons/right.svg";
 import heroBg from "@/assets/images/heroBg.svg";
@@ -16,7 +16,6 @@ import Image from "next/image";
 import slidesData from "@/data/HeroData";
 
 const HeroSection = () => {
-  const [isAutoPlaying, setIsAutoPlaying] = useState(true);
   const swiperRef = useRef<SwiperClass | null>(null);
 
   const heroVariants = {
@@ -52,7 +51,7 @@ const HeroSection = () => {
       >
         <div className="w-full h-full mx-auto px-4 relative pb-20 md:pb-0">
           <Swiper
-            modules={[Navigation, Pagination, Autoplay]}
+            modules={[Navigation, Autoplay]}
             spaceBetween={15}
             slidesPerView={1.6}
             centeredSlides={true}
