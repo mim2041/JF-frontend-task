@@ -8,11 +8,13 @@ import br4 from "@/assets/icons/br4.svg";
 import br5 from "@/assets/icons/br5.svg";
 import br6 from "@/assets/icons/br6.svg";
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { easeInOut, motion } from "framer-motion";
+import { reverse } from "dns/promises";
+import { Variants } from "framer-motion";
 
 const ContactSection = () => {
   const [selectedBranch, setSelectedBranch] = useState("MUMBAI");
-  const imageDiv = {
+  const imageDiv: Variants = {
     initial: { scale: 0.9 },
     animate: {
       scale: 1,
@@ -20,7 +22,7 @@ const ContactSection = () => {
         repeat: Infinity,
         duration: 2,
         repeatType: "reverse",
-        ease: "easeInOut",
+        ease: easeInOut,
       },
     },
   };

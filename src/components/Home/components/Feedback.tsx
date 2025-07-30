@@ -13,9 +13,10 @@ import "swiper/css/a11y";
 import "swiper/css/autoplay";
 import leftArrow from "@/assets/icons/leftArrow.svg";
 import rightArrow from "@/assets/icons/rightArrow.svg";
+import { Swiper as SwiperClass } from "swiper";
 
 const Feedback = () => {
-  const swiperRef = useRef(null);
+  const swiperRef = useRef<SwiperClass | null>(null);
 
   const feedbackData = [
     {

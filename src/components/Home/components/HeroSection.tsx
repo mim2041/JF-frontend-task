@@ -5,7 +5,8 @@ import { Navigation, Pagination, Autoplay } from "swiper/modules";
 import leftArrow from "@/assets/icons/left.svg";
 import rightArrow from "@/assets/icons/right.svg";
 import heroBg from "@/assets/images/heroBg.svg";
-import { motion } from "framer-motion";
+import { easeInOut, motion } from "framer-motion";
+import { Swiper as SwiperClass } from "swiper";
 
 // Import Swiper styles
 import "swiper/css";
@@ -16,7 +17,7 @@ import slidesData from "@/data/HeroData";
 
 const HeroSection = () => {
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
-  const swiperRef = useRef(null);
+  const swiperRef = useRef<SwiperClass | null>(null);
 
   const heroVariants = {
     hidden: { opacity: 0, y: 100 },
@@ -25,7 +26,7 @@ const HeroSection = () => {
 
   const heroTransition = {
     duration: 0.8,
-    ease: "easeOut",
+    ease: easeInOut,
   };
 
   return (

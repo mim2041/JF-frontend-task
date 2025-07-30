@@ -6,9 +6,10 @@ import insta from "@/assets/icons/instagram.svg";
 import youtube from "@/assets/icons/youtube.svg";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { Variants } from "framer-motion";
 
 const Footer = () => {
-  const btnVariants = {
+  const btnVariants: Variants = {
     initial: { scale: 0.9 },
     animate: {
       scale: 1,

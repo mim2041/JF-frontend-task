@@ -1,13 +1,20 @@
-"useClient";
-import React from "react";
+"use client";
+
+import React, { MutableRefObject, ReactNode } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, A11y, Autoplay } from "swiper/modules";
+import { Swiper as SwiperType } from "swiper/types";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/a11y";
 import "swiper/css/autoplay";
 
-const CustomSwiper = ({ children, swiperRef }) => {
+type CustomSwiperProps = {
+  children: ReactNode;
+  swiperRef: MutableRefObject<SwiperType | null>;
+};
+
+const CustomSwiper = ({ children, swiperRef }: CustomSwiperProps) => {
   return (
     <div>
       <Swiper

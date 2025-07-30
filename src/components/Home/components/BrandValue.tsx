@@ -6,9 +6,10 @@ import deliveryIcon from "@/assets/icons/delivery.svg";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { useTransform } from "framer-motion";
+import { Variants } from "framer-motion";
 
 const BrandValue = () => {
-  const animateHeader = {
+  const animateHeader: Variants = {
     initial: { y: -200, opacity: 0 },
     animate: {
       y: 0,
@@ -17,7 +18,7 @@ const BrandValue = () => {
     },
   };
 
-  const imageDiv = {
+  const imageDiv: Variants = {
     initial: { scale: 0.9 },
     animate: {
       scale: 1,

@@ -1,6 +1,7 @@
 "use client";
 import React, { useRef } from "react";
 import Image from "next/image";
+import { Swiper as SwiperClass } from "swiper";
 import leftArrow from "@/assets/icons/leftArrow.svg";
 import rightArrow from "@/assets/icons/rightArrow.svg";
 import CustomSwiper from "@/components/Shared/Swiper";
@@ -10,7 +11,7 @@ import landProducts from "@/data/LandscapeProductsData";
 import { useScroll, useTransform } from "motion/react";
 
 const LandscapeProducts = () => {
-  const swiperRef = useRef(null);
+  const swiperRef = useRef<SwiperClass | null>(null);
   const componentRef = useRef(null);
 
   // Track scroll progress
